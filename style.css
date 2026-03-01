@@ -110,8 +110,11 @@ em {
 }
 
 .hero-title {
-    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     margin-bottom: var(--space-md);
+    word-break: break-word;
+    /* Evita que palavras grandes quebrem o layout */
+    hyphens: auto;
 }
 
 .hero-title em {
@@ -306,9 +309,24 @@ em {
 
 /* Responsive */
 @media (max-width: 992px) {
+    .hero {
+        padding: var(--space-xl) 5% var(--space-lg);
+        /* Ajuste no padding geral da hero no mobile */
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+        /* Adiciona margem lateral ao texto no mobile */
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+        /* Reduz ainda mais o tamanho mínimo da fonte no mobile, mas com vw maior para preencher melhor até o limite útil */
     }
 
     .hero-visual {
